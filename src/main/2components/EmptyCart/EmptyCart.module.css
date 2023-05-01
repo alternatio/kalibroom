@@ -1,0 +1,30 @@
+.heading {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-transform: uppercase;
+    color: var(--colorFont);
+}
+
+.description {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: var(--colorTertiary);
+}
+
+.core {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: center;
+    width: min(100%, 670px);
+    margin-top: 2.5rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+}

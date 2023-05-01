@@ -1,1 +1,1 @@
-export const mainImage = require('../../public/images/image0.png')
+export const mainImage = require('/public/images/image0.png')

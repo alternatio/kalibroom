@@ -1,8 +1,6 @@
-import { FC, memo, ReactNode, useEffect, useState } from 'react'
+import { FC, memo, useEffect } from 'react'
 import style from './MainLeftPart.module.scss'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { getSpringTransition } from '@/helpers/animations'
 import Skeleton from '@/main/3ui/Skeleton/Skeleton'
 import {
 	downloadDarkIcon,
@@ -14,8 +12,11 @@ import {
 } from '@/helpers/importIcons'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { mainImage } from '@/helpers/importImages'
-import { imageI } from '@/interfaces/product'
-import {handleGallery, setCurrentImageIndex, setCurrentImages} from '@/store/reducers/products/productPage'
+import {
+	handleGallery,
+	setCurrentImageIndex,
+	setCurrentImages,
+} from '@/store/reducers/products/productPage'
 import ImageSelector from '@/main/3ui/ImageSelector/ImageSelector'
 
 interface MainLeftPartProps {}
@@ -32,7 +33,9 @@ const MainLeftPart: FC<MainLeftPartProps> = props => {
 		state => state.productPage.currentMaterialColor
 	)
 	const currentImages = useAppSelector(state => state.productPage.currentImages)
-	const currentImageIndex = useAppSelector(state => state.productPage.currentImageIndex)
+	const currentImageIndex = useAppSelector(
+		state => state.productPage.currentImageIndex
+	)
 
 	const dispatch = useAppDispatch()
 
@@ -84,7 +87,11 @@ const MainLeftPart: FC<MainLeftPartProps> = props => {
 						<Skeleton className={style.skeleton} />
 						<Image
 							className={style.currentImage}
-							src={currentImages ? currentImages[currentImageIndex]?.url : mainImage}
+							src={
+								currentImages
+									? currentImages[currentImageIndex]?.url
+									: mainImage
+							}
 							alt={'current image'}
 							width={2000}
 							height={2000}

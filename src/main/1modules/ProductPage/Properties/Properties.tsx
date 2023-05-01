@@ -39,15 +39,23 @@ const Properties: FC = () => {
 				</div>
 				<Delivery product={currentProduct} />
 				<Accordion name={'характеристики'} className={style.specifications}>
-					<Specification name={'Спальное место'} value={'189 x 130 см'} />
-					<Specification name={'name'} value={'value'} />
-					<Specification name={'name'} value={'value'} />
+					{currentProduct.properties?.length
+						? currentProduct.properties.map((property, index) => {
+								return (
+									<Specification
+										key={index}
+										name={property.name}
+										value={property.value}
+									/>
+								)
+						  })
+						: null}
 				</Accordion>
 				{currentProduct?.showrooms && currentProduct.showrooms.length ? (
 					<Accordion name={'посмотреть наличие в шоурумах'}>
 						{currentProduct.showrooms.map((showroom, index) => {
 							return (
-								<span>
+								<span key={index}>
 									{showroom?.location}
 									{showroom?.quantity}
 								</span>
