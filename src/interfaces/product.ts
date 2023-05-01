@@ -64,12 +64,12 @@ export interface colorI {
 	color: string
 	color_name: string
 	material_id: number
-	product_id:number
+	product_id: number
 }
 
 export interface materialI {
 	id: number
-	product_id: number
+	// product_id: number
 	colors: colorI[]
 	type: string
 	image: string
